@@ -1,18 +1,78 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
+  name: "Grace City Church",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "The Official Website of Grace City Church, Morong, Rizal, Philippines",
   mainNav: [
     {
       title: "Home",
       href: "/",
     },
+
+    {
+      title: "Events",
+      href: "/events",
+    },
+    {
+      title: "Resources",
+      href: "/resources",
+    },
+    {
+      title: "Give",
+      href: "/give",
+    },
+    {
+      title: "About",
+      href: "/who-we-are",
+      submenu: [
+        {
+          title: "Who We Are",
+          href: "/who-we-are",
+        },
+        {
+          title: "The Gospel",
+          href: "/the-gospel",
+        },
+        {
+          title: "Statement of Faith",
+          href: "/statement-of-faith",
+        },
+        {
+          title: "Leadership",
+          href: "/leadership",
+        },
+        {
+          title: "Our Ministries",
+          href: "/our-ministries",
+        },
+      ],
+    },
+    {
+      title: "I'm New",
+      href: "/what-to-expect",
+      submenu: [
+        {
+          title: "What To Expect",
+          href: "/what-to-expect",
+        },
+        {
+          title: "Plan Your Visit",
+          href: "/plan-your-visit",
+        },
+        {
+          title: "Service Times & Directions",
+          href: "/service-time-directions",
+        },
+        {
+          title: "Contact Us",
+          href: "/contact-us",
+        },
+      ],
+    },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    facebook: "https://www.facebook.com/gccmorong",
+    youtube: "https://www.facebook.com/gccmorong",
   },
 }

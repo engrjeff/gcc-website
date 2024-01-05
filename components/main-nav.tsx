@@ -1,41 +1,72 @@
-import * as React from "react"
+"use client"
+
+import Image from "next/image"
 import Link from "next/link"
 
 import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+
+import { buttonVariants } from "./ui/button"
 
 interface MainNavProps {
-  items?: NavItem[]
+  items: NavItem[]
 }
 
 export function MainNav({ items }: MainNavProps) {
   return (
-    <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="h-6 w-6" />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
-      </Link>
-      {items?.length ? (
-        <nav className="flex gap-6">
-          {items?.map(
-            (item, index) =>
-              item.href && (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className={cn(
-                    "flex items-center text-sm font-medium text-muted-foreground",
-                    item.disabled && "cursor-not-allowed opacity-80"
-                  )}
-                >
-                  {item.title}
+    <div className="hidden gap-4 lg:flex lg:items-center">
+      <Image
+        width={36}
+        height={36}
+        src="./gcc-logo-icon.svg"
+        alt="Grace City Church"
+        className="object-cover"
+      />
+      <NavigationMenu>
+        <NavigationMenuList>
+          {items.map((navLink) => (
+            <NavigationMenuItem key={navLink.title}>
+              {!navLink.submenu ? (
+                <Link href={navLink.href} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    {navLink.title}
+                  </NavigationMenuLink>
                 </Link>
-              )
-          )}
-        </nav>
-      ) : null}
+              ) : (
+                <NavigationMenuTrigger>{navLink.title}</NavigationMenuTrigger>
+              )}
+              {navLink.submenu ? (
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
+                    {navLink.submenu.map((submenu) => (
+                      <li key={submenu.title}>
+                        <Link
+                          href={submenu.href}
+                          className={cn(
+                            buttonVariants({ variant: "ghost" }),
+                            "inline-block h-full w-full"
+                          )}
+                        >
+                          {submenu.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              ) : null}
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
     </div>
   )
 }

@@ -7,7 +7,13 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
       screens: {
         "2xl": "1400px",
       },
@@ -70,6 +76,9 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        'hero': "url('/hero.jpg')",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
