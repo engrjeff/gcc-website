@@ -44,7 +44,12 @@ function MobileNav() {
           <nav>
             {siteConfig.mainNav.map((navLink) =>
               navLink.submenu ? (
-                <Accordion type="single" collapsible className="w-full">
+                <Accordion
+                  key={`mobile-navlink-${navLink.title}`}
+                  type="single"
+                  collapsible
+                  className="w-full"
+                >
                   <AccordionItem value={navLink.title} className="border-none">
                     <AccordionTrigger
                       className={cn(
