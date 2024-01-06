@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 import { NavItem } from "@/types/nav"
 import { cn } from "@/lib/utils"
@@ -22,6 +23,8 @@ interface MainNavProps {
 }
 
 export function MainNav({ items }: MainNavProps) {
+  const pathname = usePathname()
+
   return (
     <div className="hidden gap-4 lg:flex lg:items-center">
       <Image
@@ -37,7 +40,15 @@ export function MainNav({ items }: MainNavProps) {
             <NavigationMenuItem key={navLink.title}>
               {!navLink.submenu ? (
                 <Link href={navLink.href} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink
+                    className={navigationMenuTriggerStyle({
+                      className: cn(
+                        navLink.href === pathname
+                          ? "text-primary hover:bg-background hover:text-primary"
+                          : ""
+                      ),
+                    })}
+                  >
                     {navLink.title}
                   </NavigationMenuLink>
                 </Link>
@@ -53,7 +64,10 @@ export function MainNav({ items }: MainNavProps) {
                           href={submenu.href}
                           className={cn(
                             buttonVariants({ variant: "ghost" }),
-                            "inline-block h-full w-full"
+                            "inline-block h-full w-full",
+                            submenu.href === pathname
+                              ? "text-primary hover:bg-background hover:text-primary"
+                              : ""
                           )}
                         >
                           {submenu.title}

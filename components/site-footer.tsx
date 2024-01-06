@@ -1,10 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import Container from "./container"
+
 function SiteFooter() {
   return (
     <footer className="dark bg-background text-foreground">
-      <div className="container space-y-4 py-8">
+      <Container className="space-y-4 py-8">
         <Image
           width={60}
           height={60}
@@ -12,7 +14,7 @@ function SiteFooter() {
           alt="Grace City Church"
           className="object-cover"
         />
-        <ul className="flex flex-col gap-3 px-4 lg:flex-row">
+        <ul className="flex flex-col gap-3 px-4 lg:flex-row lg:gap-5">
           <li>
             <Link
               className="text-sm font-semibold uppercase transition-colors hover:text-primary"
@@ -67,7 +69,7 @@ function SiteFooter() {
             Soli Deo Gloria!
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

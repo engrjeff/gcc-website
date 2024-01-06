@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 
+import Container from "./container"
 import MobileNav from "./mobile-nav"
 import { buttonVariants } from "./ui/button"
 import { Separator } from "./ui/separator"
@@ -15,17 +16,19 @@ import { Separator } from "./ui/separator"
 export function SiteHeader() {
   return (
     <header className="dark sticky top-0 z-40 w-full border-b bg-background text-foreground">
-      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
+      <Container className="flex h-16 items-center sm:space-x-0 lg:justify-between">
         <MobileNav />
-        <MainNav items={siteConfig.mainNav} />
-        <div className="flex flex-1 items-center justify-end">
+        <div className="flex-1 text-center lg:hidden">
           <Image
-            width={36}
-            height={36}
+            width={38}
+            height={38}
             src="./gcc-logo-icon.svg"
             alt="Grace City Church"
-            className="mr-3 block object-cover lg:hidden"
+            className="inline-block object-cover"
           />
+        </div>
+        <MainNav items={siteConfig.mainNav} />
+        <div className="flex items-center justify-end">
           <nav className="flex items-center gap-4">
             <Link
               href="/login"
@@ -33,7 +36,7 @@ export function SiteHeader() {
             >
               Member Log In
             </Link>
-            <Separator orientation="vertical" className="h-8" />
+            <Separator orientation="vertical" className="hidden h-8 lg:block" />
             <Link
               href={siteConfig.links.facebook}
               target="_blank"
@@ -54,7 +57,7 @@ export function SiteHeader() {
             </Link>
           </nav>
         </div>
-      </div>
+      </Container>
     </header>
   )
 }

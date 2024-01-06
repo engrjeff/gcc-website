@@ -35,8 +35,8 @@ export const siteConfig = {
           href: "/the-gospel",
         },
         {
-          title: "Statement of Faith",
-          href: "/statement-of-faith",
+          title: "What We Believe",
+          href: "/what-we-believe",
         },
         {
           title: "Leadership",

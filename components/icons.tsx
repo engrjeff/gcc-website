@@ -1,10 +1,10 @@
 import { LucideProps, Moon, SunMedium } from "lucide-react"
-import { FaFacebookF, FaYoutube } from "react-icons/fa"
+import { FaFacebook, FaYoutube } from "react-icons/fa"
 
 export const Icons = {
   sun: SunMedium,
   moon: Moon,
-  facebook: FaFacebookF,
+  facebook: FaFacebook,
   youtube: FaYoutube,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
