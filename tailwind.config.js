@@ -53,6 +53,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        offwhite: '#f2f2f2'
       },
       borderRadius: {
         lg: `var(--radius)`,
@@ -78,6 +79,8 @@ module.exports = {
       },
       backgroundImage: {
         'hero': "url('/hero.jpg')",
+        'plan-visit-banner' : "url('/plan-visit-banner.jpg')",
+        'resources-banner' : "url('/resources-banner.jpg')"
       }
     },
   },

@@ -1,7 +1,7 @@
 import { type Metadata } from "next"
 
-import Banner from "@/components/banner"
 import Container from "@/components/container"
+import LoginForm from "@/app/login/_components/login-form"
 
 export const metadata: Metadata = {
   title: "Login",
@@ -10,10 +10,9 @@ export const metadata: Metadata = {
 function MemberLoginPage() {
   return (
     <>
-      <Banner />
-      <Container className="py-10">
+      <Container className="px-2 py-10">
         <section>
-          <h1 className="text-lg font-bold">Member Login</h1>
+          <LoginForm />
         </section>
       </Container>
     </>

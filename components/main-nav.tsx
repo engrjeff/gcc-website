@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -16,6 +15,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
+import LogoLink from "./logo-link"
 import { buttonVariants } from "./ui/button"
 
 interface MainNavProps {
@@ -27,13 +27,7 @@ export function MainNav({ items }: MainNavProps) {
 
   return (
     <div className="hidden gap-4 lg:flex lg:items-center">
-      <Image
-        width={36}
-        height={36}
-        src="./gcc-logo-icon.svg"
-        alt="Grace City Church"
-        className="object-cover"
-      />
+      <LogoLink />
       <NavigationMenu>
         <NavigationMenuList>
           {items.map((navLink) => (

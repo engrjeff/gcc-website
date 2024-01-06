@@ -1,6 +1,8 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
@@ -25,9 +27,13 @@ import {
 } from "./ui/sheet"
 
 function MobileNav() {
+  const [open, setOpen] = useState(false)
+
+  const pathname = usePathname()
+
   return (
     <div className="block -translate-x-3 lg:hidden">
-      <Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon">
             <span className="sr-only">menu</span>
@@ -64,8 +70,15 @@ function MobileNav() {
                         <Link
                           key={`mobile-navlink-submenu-${submenu.title}`}
                           href={submenu.href}
+                          onClick={() => setOpen(false)}
                           className={cn(
-                            buttonVariants({ variant: "ghost", size: "lg" }),
+                            buttonVariants({
+                              variant:
+                                pathname === submenu.href
+                                  ? "secondary"
+                                  : "ghost",
+                              size: "lg",
+                            }),
                             "w-full justify-start px-4"
                           )}
                         >
@@ -79,8 +92,13 @@ function MobileNav() {
                 <Link
                   key={`mobile-navlink-${navLink.title}`}
                   href={navLink.href}
+                  onClick={() => setOpen(false)}
                   className={cn(
-                    buttonVariants({ variant: "ghost", size: "lg" }),
+                    buttonVariants({
+                      variant:
+                        pathname === navLink.href ? "secondary" : "ghost",
+                      size: "lg",
+                    }),
                     "w-full justify-start"
                   )}
                 >
@@ -89,7 +107,7 @@ function MobileNav() {
               )
             )}
 
-            <div className="mt-6 px-8">
+            <div className="mt-6 px-8" onClick={() => setOpen(false)}>
               <Link
                 href="/login"
                 className={cn(buttonVariants({ size: "lg" }), "w-full")}

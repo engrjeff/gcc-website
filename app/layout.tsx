@@ -36,19 +36,21 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning className="h-full">
+      <html
+        lang="en"
+        suppressHydrationWarning
+        className="h-full scroll-smooth selection:bg-primary selection:text-primary-foreground"
+      >
         <head />
         <body
           className={cn(
-            "min-h-full bg-background font-sans antialiased",
+            "h-full bg-background font-sans antialiased",
             fontSans.variable
           )}
         >
-          <div className="relative flex min-h-full flex-col">
+          <div className="relative flex h-full flex-col">
             <SiteHeader />
-            <main className="h-full flex-1 p-2 md:p-4 xl:p-5">
-              <div className="min-h-screen bg-[#f2f2f2]">{children}</div>
-            </main>
+            <main className="flex-1 p-2 md:p-4 xl:p-5">{children}</main>
             <SiteFooter />
           </div>
           <TailwindIndicator />
