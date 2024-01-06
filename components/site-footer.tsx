@@ -12,7 +12,7 @@ function SiteFooter() {
           alt="Grace City Church"
           className="object-cover"
         />
-        <ul className="flex flex-col gap-3 px-4">
+        <ul className="flex flex-col gap-3 px-4 lg:flex-row">
           <li>
             <Link
               className="text-sm font-semibold uppercase transition-colors hover:text-primary"
