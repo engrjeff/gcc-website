@@ -81,8 +81,16 @@ module.exports = {
         'hero': "url('/hero.jpg')",
         'plan-visit-banner' : "url('/plan-visit-banner.jpg')",
         'resources-banner' : "url('/resources-banner.jpg')"
-      }
+      },
+      typography: {
+        quoteless: {
+          css: {
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:first-of-type::after": { content: "none" },
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography'),],
 }

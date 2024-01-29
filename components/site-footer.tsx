@@ -10,7 +10,7 @@ function SiteFooter() {
         <Image
           width={60}
           height={60}
-          src="./gcc-logo-icon.svg"
+          src="/gcc-logo-icon.svg"
           alt="Grace City Church"
           className="object-cover"
         />

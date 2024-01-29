@@ -7,7 +7,7 @@ function LogoLink() {
       <Image
         width={38}
         height={38}
-        src="./gcc-logo-icon.svg"
+        src="/gcc-logo-icon.svg"
         alt="Grace City Church"
         className="inline-block object-cover"
       />
